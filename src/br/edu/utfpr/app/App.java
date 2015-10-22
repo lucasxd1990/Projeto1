@@ -7,6 +7,7 @@ package br.edu.utfpr.app;
 
 import br.edu.utfpr.dao.Dao;
 import br.edu.utfpr.dao.PessoaDaoArrayList;
+import br.edu.utfpr.dao.PessoaDaoDerby;
 import br.edu.utfpr.dao.PessoaDaoVetor;
 import br.edu.utfpr.modelo.Pessoa;
 
@@ -26,18 +27,18 @@ public class App {
         Pessoa pedro = new Pessoa("Pedro","Silva", 18);
         Pessoa jose = new Pessoa("Jose","Silva", 16);
         
-        Dao dao = new PessoaDaoVetor();
-        dao.adicionar(joao);
-        dao.adicionar(pedro);
-        dao.adicionar(jose);
-        
-        dao.listarTudo();
-        
-        System.out.println("\n\n -------Vamos remover");
-        dao.remover(joao);
-        dao.remover(pedro);
-        dao.remover(jose);
-        
-        dao.listarTudo();
+        Dao dao = new PessoaDaoDerby();
+//        dao.adicionar(joao);
+//        dao.adicionar(pedro);
+//        dao.adicionar(jose);
+//        
+//        dao.listarTudo();
+//        
+//        System.out.println("\n\n -------Vamos remover");
+//        dao.remover(joao);
+//        dao.remover(pedro);
+//        dao.remover(jose);
+//        
+//        dao.listarTudo();
     }
 }
