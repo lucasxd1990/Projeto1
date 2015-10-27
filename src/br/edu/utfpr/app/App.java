@@ -28,6 +28,9 @@ public class App {
         Pessoa jose = new Pessoa("Jose","Silva", 16);
         
         Dao dao = new PessoaDaoDerby();
+        dao.adicionar(jose);
+        dao.remover(jose);
+        dao.listarTudo();
 //        dao.adicionar(joao);
 //        dao.adicionar(pedro);
 //        dao.adicionar(jose);

@@ -13,7 +13,7 @@ import java.sql.*;
  * @author UTFPR
  */
 public class PessoaDaoDerby implements Dao {
-    
+
     Statement stmt;
 
     public PessoaDaoDerby() {
@@ -24,6 +24,7 @@ public class PessoaDaoDerby implements Dao {
         try {
             Connection con = DriverManager.getConnection(url, username, password);
             stmt = con.createStatement();
+            System.out.println("Conexão estabelecida");
         } catch (SQLException se) {
             System.out.println("Mensagem: " + se.getMessage());
         }
@@ -31,17 +32,43 @@ public class PessoaDaoDerby implements Dao {
 
     @Override
     public void adicionar(Pessoa p) {
+        String instrucao = "INSERT INTO PESSOA (NOME, SOBRENOME, IDADE) VALUES ("+"'"+p.getNome()   +"', "+"'"+p.getSobrenome() +"', "+p.getIdade()  +")";
+                 
+        System.out.println(instrucao);
+        try{
+            stmt.executeUpdate(instrucao);
+        }catch (SQLException se){
+            System.out.println("Mensagem: " + se.getMessage());
+        }
 
     }
 
     @Override
     public void remover(Pessoa p) {
-
+        String instrucao = "DELETE FROM PESSOA WHERE NOME = 'Jose'";
+        
+         System.out.println(instrucao);
+        try{
+            stmt.executeUpdate(instrucao);
+        }catch (SQLException se){
+            System.out.println("Mensagem: " + se.getMessage());
+        }
     }
 
     @Override
     public void listarTudo() {
-
+        String instrucao = "SELECT * PESSOA";
+        
+        System.out.println(instrucao);
+        try{
+            ResultSet rs = stmt.executeQuery(instrucao);
+            
+            while(rs.next()){
+                System.out.println("Nome: "+ rs.getString("NOME")"Sobrenome: "+ rs.getString("SOBRENOME")"Idade: "+ rs.getString("IDADE"));
+            }
+        }catch (SQLException se){
+            System.out.println("Mensagem: " + se.getMessage());
+        }
     }
 
 }
