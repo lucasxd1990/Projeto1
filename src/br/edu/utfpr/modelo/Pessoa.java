@@ -20,6 +20,10 @@ public class Pessoa {
         this.idade = idade;
     }
 
+    public Pessoa(String text, String text0, int parseInt, int parseInt0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getNome() {
         return nome;
     }

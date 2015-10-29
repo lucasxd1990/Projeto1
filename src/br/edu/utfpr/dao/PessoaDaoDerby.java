@@ -64,7 +64,7 @@ public class PessoaDaoDerby implements Dao {
             ResultSet rs = stmt.executeQuery(instrucao);
             
             while(rs.next()){
-                System.out.println("Nome: "+ rs.getString("NOME")"Sobrenome: "+ rs.getString("SOBRENOME")"Idade: "+ rs.getString("IDADE"));
+                System.out.println("Nome: " + rs.getString("NOME") + "Sobrenome: " + rs.getString("SOBRENOME") + "idade: " + rs.getString("IDADE"));
             }
         }catch (SQLException se){
             System.out.println("Mensagem: " + se.getMessage());
